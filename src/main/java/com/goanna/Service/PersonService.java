@@ -5,6 +5,8 @@ import com.goanna.Entity.Person;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class PersonService {
     @Autowired
@@ -16,6 +18,15 @@ public class PersonService {
 
     public int addPerson(Person person){
         return personRepository.insertPerson(person);
+    }
+
+    public List<Person> findAllPeople(){
+        return personRepository.getAllPeople();
+    }
+
+
+    public Person getPersonById(int id){
+        return personRepository.selectByID(id);
     }
 
 
